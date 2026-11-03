@@ -48,3 +48,16 @@ Nota: il sito non può avere un proprio modulo di registrazione GitHub. La sezio
 
 5. IMMAGINE HOMEPAGE
 L'illustrazione in homepage è assets/hero-cinefriends.svg. Per usare una foto, salvala in assets/ e cambia il percorso nel tag <img class="hero-img"> di index.html.
+
+6. EMAIL DI CONFERMA CON PROMEMORIA PER IL CALENDARIO (EMAILJS, FACOLTATIVA)
+Dopo una prenotazione riuscita, chi ha prenotato riceve un'email con i pulsanti "Google Calendar" e "Apple / Outlook (.ics)".
+EmailJS ha un piano gratuito (circa 200 richieste al mese: verifica i limiti aggiornati su emailjs.com/pricing).
+- Crea un account su https://www.emailjs.com e collega la tua casella in "Email Services" (es. Gmail): annota il Service ID.
+- In "Email Templates" crea un template e segui le istruzioni in cima al file email-conferma-template.html: annota il Template ID.
+- Da Account > General copia la Public Key.
+- Incolla i tre valori in conferma-config.js (publicKey, serviceId, templateId) e pubblica.
+- Consigliato: nelle impostazioni di sicurezza di EmailJS limita l'uso della chiave al dominio del tuo sito.
+Se conferma-config.js è vuoto, l'email non viene inviata e le prenotazioni funzionano comunque.
+Date: l'orario del calendario si legge da "date" e "time" in films.js (es. "Lunedì 9 Novembre", "Ore 21:00"). Se vuoi essere preciso, aggiungi al film start: "2026-11-09T21:00" (e duration: 150 per la durata in minuti).
+Il file calendario.html genera il promemoria (.ics) con avvisi il giorno prima e due ore prima.
+
