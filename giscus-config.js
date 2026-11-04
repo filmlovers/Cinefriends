@@ -4,7 +4,7 @@
 window.GISCUS_CONFIG = {
   repo: "filmlovers/Cinefriends",          // es. "tuo-utente/Cinefriends"
   repoId: "R_kgDOVh16mw",        // es. "R_kgDOxxxxxxx"  (lo genera giscus.app)
-  category: "Proposte",
+  category: "Announcements",
   categoryId: "DIC_kwDOVh16m84DKU18",    // es. "DIC_kwDOxxxxxxx" (lo genera giscus.app)
   term: "Proposte Cinefriends",
   theme: "light"
