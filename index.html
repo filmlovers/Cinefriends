@@ -102,6 +102,7 @@
             <option value="Dopo cena (solo proiezione)">Dopo cena, direttamente alla proiezione</option>
           </select>
           <label for="film">Film per cui prenoti *</label><select id="film" name="Film" required></select>
+          <div class="seats-counter" id="seats-counter" aria-live="polite"></div>
           <label for="notes">Note <span class="optional">(facoltative)</span></label><textarea id="notes" name="Note" rows="3" placeholder="Esigenze particolari o un messaggio..."></textarea>
           <label class="privacy"><input type="checkbox" required> <span>Acconsento a essere ricontattato/a per gestire questa prenotazione. *</span></label>
           <button class="button button-dark submit-button" type="submit">Invia la prenotazione <span>↗</span></button>
@@ -113,6 +114,6 @@
   </main>
 
   <footer class="site-footer"><a class="brand brand-footer" href="#home"><span class="brand-mark">▶</span><span>CINE<span class="brand-light">FRIENDS</span></span></a><p>Il cinema è più bello quando è condiviso.</p><a href="#home" class="back-top">TORNA SU ↑</a><small>© <span id="year"></span> Cinefriends · Tutti i diritti riservati</small></footer>
-  <script src="films.js"></script><script src="giscus-config.js"></script><script src="prenotazioni-config.js"></script><script src="conferma-config.js"></script><script src="script.js"></script>
+  <script src="films.js"></script><script src="giscus-config.js"></script><script src="prenotazioni-config.js"></script><script src="conferma-config.js"></script><script src="posti-config.js"></script><script src="script.js"></script>
 </body>
 </html>
