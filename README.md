@@ -61,3 +61,27 @@ Se conferma-config.js è vuoto, l'email non viene inviata e le prenotazioni funz
 Date: l'orario del calendario si legge da "date" e "time" in films.js (es. "Lunedì 9 Novembre", "Ore 21:00"). Se vuoi essere preciso, aggiungi al film start: "2026-11-09T21:00" (e duration: 150 per la durata in minuti).
 Il file calendario.html genera il promemoria (.ics) con avvisi il giorno prima e due ore prima.
 
+
+7. POSTI DISPONIBILI (CONTATORE NEL MODULO)
+Ogni serata ha 7 posti (modificabile). Il sito non può contare da solo le prenotazioni: aggiorni tu i posti già occupati in films.js.
+Per ogni film puoi aggiungere due righe (se mancano, valgono 7 posti totali e 0 occupati):
+    seats: 7,    // posti totali della serata
+    booked: 3,   // posti già confermati: aggiornalo quando confermi una prenotazione
+Il modulo mostra i posti rimasti, limita il numero selezionabile e, a 0 posti, disabilita il film e il pulsante.
+Nota: il limite vale per il visitatore che ha la pagina aperta; la conferma finale resta sempre tua.
+
+8. POSTI IN AUTOMATICO CON GOOGLE SHEETS (FACOLTATIVO)
+Ogni prenotazione viene scritta in un foglio Google e il contatore dei posti si aggiorna da solo. Il controllo dei posti avviene sul foglio, quindi non si può superare la capienza nemmeno con richieste simultanee. Ogni richiesta conta subito, senza conferma manuale.
+- Crea un foglio Google (sheets.new). Il foglio "Prenotazioni" con le colonne si crea da solo alla prima richiesta.
+- Nel foglio: Estensioni > Apps Script. Cancella il codice di esempio, incolla il contenuto di google-sheets/Code.gs e salva.
+- In alto: Distribuisci > Nuova distribuzione. Tipo: "Applicazione web". Esegui come: "Me". Chi ha accesso: "Chiunque". Clicca Distribuisci.
+- Autorizza l'accesso con il tuo account Google (se compare "app non verificata": Avanzate > Vai a ... > Consenti).
+- Copia l'indirizzo "Applicazione web" (finisce con /exec) e incollalo in posti-config.js nel campo url.
+- Prova: apri nel browser l'indirizzo seguito da ?action=availability. Deve comparire un testo che inizia con {"ok":true.
+- Pubblica il sito. Se un giorno modifichi Code.gs: Distribuisci > Gestisci distribuzioni > matita > Versione: "Nuova versione" > Distribuisci.
+Gestione:
+- Annullare una prenotazione: cancella la riga oppure scrivi 0 nella colonna "Posti". I posti tornano subito disponibili.
+- Capienza: in Code.gs, CAPIENZA (default 7). Per una serata diversa crea un foglio "Capienze": colonna A = testo esatto della colonna "Film" (es. "Pulp Fiction — Lunedì 9 Novembre"), colonna B = posti totali.
+- Il foglio contiene nomi ed email: non condividerlo con nessuno. Il sito legge solo il numero di posti occupati per film.
+- Quando il foglio è attivo, seats e booked in films.js non servono più (restano come riserva se il foglio non risponde).
+- Le email di avviso (Web3Forms) e di conferma (EmailJS) continuano a funzionare come prima.
