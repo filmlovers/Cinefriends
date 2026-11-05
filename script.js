@@ -304,8 +304,8 @@ function setupSeatsCounter() {
       `<span class="seat-dot ${i < taken ? "seat-taken" : (i < taken + wanted ? "seat-wanted" : "seat-free")}"></span>`).join("");
     let msg;
     if (left === 0) msg = "<strong>Posti esauriti</strong> per questa serata. Scegli un altro film.";
-    else if (left <= 2) msg = `<strong>Ultimi posti!</strong> Ne restano ${left} su ${total}.` + (wanted ? ` Con la tua richiesta ne resterebbero ${left - wanted}.` : "");
-    else msg = `<strong>${left} posti disponibili</strong> su ${total}.` + (wanted ? ` Con la tua richiesta ne resterebbero ${left - wanted}.` : "");
+    else if (left <= 2) msg = `<strong>Ultimi posti!</strong> Ne restano ${left} su ${total}.`;
+    else msg = `<strong>${left} posti disponibili</strong> su ${total}.`;
     box.className = "seats-counter" + (left === 0 ? " seats-out" : left <= 2 ? " seats-low" : "");
     box.innerHTML = `<div class="seat-dots" aria-hidden="true">${dots}</div><p>${msg}</p>`;
   };
