@@ -3,7 +3,7 @@
 // Compila i tre campi seguendo la guida nel README (punto 6). Se restano vuoti, l'email non viene inviata
 // e il resto del sito funziona normalmente.
 window.CONFERMA_CONFIG = {
-  publicKey: "V8WPcezNFUm_mw2GhqfWI",   // EmailJS > Account > General > Public Key
+  publicKey: "D4otYMm8a2Z7brOsl",   // EmailJS > Account > General > Public Key
   serviceId: "service_rontof4",   // EmailJS > Email Services > Service ID (es. "service_xxxxxxx")
   templateId: "template_hlp203s"   // EmailJS > Email Templates > Template ID (es. "template_xxxxxxx")
 };
