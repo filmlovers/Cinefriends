@@ -19,7 +19,7 @@
   .schedule-thumb{display:none}
 }
 /* === Immagine hero === */
-.hero-img{display:block;width:auto;height:auto;aspect-ratio:16/9;object-fit:contains;transform:rotate(-3deg);box-shadow:18px 20px 0 #171716;margin-top:-18px}
+.hero-img{display:block;width:84%;height:auto;aspect-ratio:4/3;object-fit:cover;transform:rotate(-3deg);box-shadow:18px 20px 0 #171716;margin-top:-18px}
 /* === Locandine nella programmazione su mobile === */
 @media(max-width:760px){
   .hero-img{width:88%;margin-top:0;box-shadow:12px 14px 0 #171716}
